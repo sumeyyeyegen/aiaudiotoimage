@@ -1,4 +1,5 @@
 const express = require("express");
+const catchAsync = require("../Utils/catchAsync");
 const nftControllers = require("./../controllers/nftControllers");
 // const {
 //   getAllNfts,
