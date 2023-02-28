@@ -41,6 +41,14 @@ const userSchema = new mongoose.Schema({
   passwordResetToken: String,
   passwordResetExpires:Date
 });
+
+userSchema.pre("save",function(next){
+  if(!this.isModified("password") || this.isNew) return next();
+
+  this.passwordChangedAt = Date.now() -1000;
+  next()
+})
+
 //Database'e kaydedilmeden önce password şifreleme
 userSchema.pre("save", async function(next){
   if(!this.isModified("password")) return next();

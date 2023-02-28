@@ -566,9 +566,11 @@ exports.deleteNFT = catchAsync(async (req, res,next) => {
     if(!nft){
       return next( new AppError('No nft found with that ID',404));
         }
-    res.status(204).json({
+    res.status(200).json({
       status: "success",
-      data: null,
+      data: {
+        message:"NFT deleted",
+        },
     })
 });
 
