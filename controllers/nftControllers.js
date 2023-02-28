@@ -508,7 +508,7 @@ exports.getAllNfts = catchAsync( async (req, res,next) => {
 
     // /SEND QUERY
     res.status(200).json({
-      status: "success",
+      status: "success", 
       results: nfts.length,
       data: {
         nfts,
@@ -602,6 +602,7 @@ exports.getNFTsStats = catchAsync(async (req, res,next) => {
       //   },
       // },
     ]);
+    console.log('stats',stats);
     res.status(200).json({
       status: "success",
       data: {
