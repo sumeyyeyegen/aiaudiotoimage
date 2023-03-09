@@ -27,7 +27,7 @@ mongoose
   })
   // .catch(err => console.log('ERROR'))
 
-const port = process.env.PORT || 3006;
+const port = process.env.PORT || 3001;
 const server = app.listen(port, () => {
   console.log('Mode : ', process.env.NODE_ENV);
   console.log(`App running on port ${port}....`);

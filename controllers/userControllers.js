@@ -58,14 +58,14 @@ exports.getAllUsers = catchAsync(async(req, res,next) => {
 exports.createUser = (req, res) => {
   res.status(500).json({
     status: "error",
-    message: "Internal server error",
+    message: "Internal server error"
   });
 };
 
 exports.getSingleUser = (req, res) => {
   res.status(500).json({
     status: "error",
-    message: "Internal server error",
+    message: "Internal server error"
   });
 };
 

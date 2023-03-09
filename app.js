@@ -42,11 +42,13 @@ const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 const hpp = require("hpp");
+const cors = require('cors');
 
 const globalErrorHandler = require("./controllers/errorController");
 const ArrError = require("./Utils/appError");
 const nftsRouter = require("./routes/nftsRoute");
 const usersRouter = require("./routes/usersRoute");
+const blogsRouter = require("./routes/blogsRoute");
 
 const app = express();
 app.use(express.json({limit:"10kb"}));
@@ -93,8 +95,13 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cors({
+  origin: '*'
+}));
+
 app.use("/api/v1/nfts", nftsRouter);
 app.use("/api/v1/users", usersRouter);
+app.use("/api/v1/blogs", blogsRouter);
 
 //ERROR SECTION
 app.all("*",(req,res,next) =>{
